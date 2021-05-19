@@ -14,9 +14,9 @@ WHERE release_date < 1980;
 SELECT 'Albums by Michael Jackson' AS 'Info';
 SELECT name FROM albums WHERE artist = 'Michael Jackson';
 UPDATE albums
-SET name = 'Peter Jackson'
-WHERE name = 'Michael Jackson';
+SET artist = 'Peter Jackson'
+WHERE artist = 'Michael Jackson';
 
-SELECT name FROM albums WHERE artist = 'Peter Jackson';
+SELECT artist FROM albums WHERE artist = 'Peter Jackson';
 SELECT sales FROM albums;
 SELECT name FROM albums WHERE release_date < 1900;
