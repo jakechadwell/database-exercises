@@ -19,3 +19,16 @@ SELECT first_name, last_name FROM employees WHERE emp_no IN (
     AND gender = 'F'
     );
 
+SELECT dept_name FROM departments WHERE dept_no IN
+    (SELECT dept_no
+    FROM dept_manager
+    WHERE emp_no IN
+    (SELECT emp_no
+    FROM employees
+    WHERE to_date > current_date
+    AND gender = 'F')
+    );
+
+SELECT first_name, last_name FROM employees WHERE emp_no IN
+  (SELECT emp_no FROM salaries WHERE salary =
+     (SELECT salary FROM salaries ORDER BY salary DESC LIMIT 1));
