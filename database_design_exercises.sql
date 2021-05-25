@@ -1,24 +1,24 @@
 use codeup_test_db;
 drop table if exists users;
 create table users (
-                       id int unsigned auto_increment,
-                       username varchar(100) not null,
-                       email varchar(100) not null,
-                       password varchar(50) not null,
-                       primary key (id)
+    id int unsigned auto_increment,
+    username varchar(100) not null,
+    email varchar(100) not null,
+    password varchar(50) not null,
+primary key (id)
 );
 insert into users(username, email, password)
 values('victorhernandez', 'victor@jpmorgan.com', 'asdfghjkl'),
       ('sergio', 'sergio@jpmorgan.com', '123456');
 drop table if exists ads;
 create table ads (
-                     id int unsigned auto_increment,
-                     title varchar(150) not null,
-                     description text not null,
-                     category varchar(100) not null,
-                     primary key (id),
-                     users_id int unsigned not null,
-                     foreign key (users_id) references users (id)
+     id int unsigned auto_increment,
+     title varchar(150) not null,
+     description text not null,
+     category varchar(100) not null,
+     primary key (id),
+     users_id int unsigned not null,
+     foreign key (users_id) references users (id)
 );
 truncate ads;
 insert into ads(title, description, category, users_id)
